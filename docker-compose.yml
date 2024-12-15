@@ -1,0 +1,23 @@
+services:
+  postgres:
+    image: postgres:14-alpine
+    container_name: gogo-postgres
+    volumes:
+      - ./backend/dev/data/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=S3cret
+      - POSTGRES_USER=gogo
+      - POSTGRES_DB=gogo
+
+  gogo-backend:
+    build: .
+    env_file:
+      - ./backend/.env
+    container_name: gogo-backend
+    ports:
+      - 3000:3000
+    volumes:
+      - ./backend/src:/app/src
+      - ./backend/prisma:/app/prisma
+      - ./shared:/app/shared
+    command: npm run dev
