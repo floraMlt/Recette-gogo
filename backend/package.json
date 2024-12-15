@@ -2,18 +2,25 @@
   "name": "gogo-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "start": "node ./src/index.js",
-    "dev": "nodemon -L ./src/index.js",
+    "dev": "nodemon -L ./src/index.ts",
+    "build": "npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "floramallet@outlook.fr antoine.libert@outlook.com",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^5.18.0",
     "express": "^4.19.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.4"
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.5.0",
+    "nodemon": "^3.1.4",
+    "prisma": "^5.18.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
   }
 }
